@@ -1,0 +1,70 @@
+
+<div class="nav">
+<ul>
+  <li><a class="active" href="/dashboard">Home</a></li>
+  <li><a routerLink="/addpet">Cadastrar pet</a></li>
+  <li><a routerLink="#contact">Contact</a></li>
+  <li><a (click)="logout()">Logout</a></li>
+
+</ul>
+<div>
+<table id="customers">
+  <tr>
+    <th>Codigo</th>
+    <th>Nome</th>
+    <th>Data nascimeto</th>
+    <th>Raça</th>
+    <th>Sexo</th>
+    <th>Cor</th>
+  </tr>
+  <tr *ngFor="let pet of pets.results">
+    <td>{{pet.pk}}</td>
+    <td>{{pet.nome}}</td>
+    <td>{{pet.nadcimento}}</td>
+    <td>{{pet.raca}}</td>
+    <td>{{pet.sexo}}</td>
+    <td>{{pet.cor}}</td>
+    <td>
+        <button (click)="delete(pet.pk)">Excluir</button>
+    </td>
+  </tr>
+</table>
+<div class="container">
+<div class="box"> 
+<h3>Cadastrar Pet</h3>
+    <fieldset>
+        <fieldset class="grupo">
+            <div class="campo">
+                <input type="text" #nomePet style="width: 30em" placeholder="Nome do pet">
+            </div>
+            <div class="campo">
+                <input type="text" #cpfDono style="width: 30em"  placeholder="Cpf do Dono">
+            </div>
+        </fieldset>
+         <fieldset>
+        <fieldset class="grupo">
+            <div class="campo">
+                <input type="date" #nascimento style="width: 30em" placeholder="Data de nascimentot">
+            </div>
+            <div class="campo">
+                <input type="text" #raca style="width: 30em"  placeholder="Raça">
+            </div>
+        </fieldset>
+     </fieldset>
+     <fieldset>
+        <fieldset class="grupo">
+            <div class="campo">
+                <input type="text" #sexo style="width: 30em" placeholder="Sexo">
+            </div>
+            <div class="campo">
+                <input type="text" #cor style="width: 30em"  placeholder="Cor">
+            </div>
+        </fieldset>
+     </fieldset>
+<button (click)="addPet(nomePet.value, cpfDono.value, nascimento.value, raca.value, sexo.value, cor.value)">Cadastrar</button>
+
+     </fieldset>
+</div>
+</div>    
+
+

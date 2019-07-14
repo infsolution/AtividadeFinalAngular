@@ -1,0 +1,55 @@
+<div class="nav">
+<ul>
+  <li><a class="active" href="/dashboard">Home</a></li>
+  <li><a routerLink="/addpet">Cadastrar pet</a></li>
+  <li><a routerLink="#contact">Contact</a></li>
+  <li><a (click)="logout()">Logout</a></li>
+
+</ul>
+<div>
+<div class="container">
+<h1>Lista de Atendimentos</h1>
+
+<table id="customers">
+  <tr>
+    <th>Codigo</th>
+    <th>Cpf-pet</th>
+    <th>Data</th>
+    <th>Tipo Atendimento</th>
+    <th>Atender</th>
+    <th>Açao</th>
+  </tr>
+  <tr *ngFor="let atendimento of atendimentos.results">
+    <td>{{atendimento.pk}}</td>
+    <td>{{atendimento.pet}}</td>
+    <td>{{atendimento.data_hora}}</td>
+    <td>{{atendimento.tipo}}</td>
+    <td><a routerLink="/atendimento/{{atendimento.pk}}/">Atender</a></td>
+    <td>
+        <button (click)="delete(atendimento.pk)">Cancelar atendimento</button>
+    </td>
+  </tr>
+</table>
+
+
+<!--table id="customers">
+<thead>
+  <tr>
+    <th>Codigo</th>
+    <th>Nome</th>
+    <th>Dose</th>
+    <th>Frequencia</th>
+    <th>periodo</th>
+  </tr>
+ </thead> 
+<tbody>
+  <tr *ngFor="let medic of medicamentos.results">
+    <td>{{medic.id}}</td>
+    <td>{{medic.nome}}</td>
+    <td>{{medic.dose}}</td>
+    <td>{{medic.frequencia}}</td>
+    <td>{{medic.perido}}</td>
+  </tr>
+</tbody> 
+</table-->
+</div>  

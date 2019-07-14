@@ -1,0 +1,36 @@
+<div class="nav">
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a routerLink="#news">News</a></li>
+  <li><a routerLink="#contact">Contact</a></li>
+  <li><a (click)="logout()">Logout</a></li>
+
+</ul>
+<div>
+<h1>Atendimento</h1>
+<strong>Data atendiemnto</strong>
+<label><p>{{ atendimento.data_hora }}</p></label>
+<table>
+  <tr>
+    <th><strong>Codigo</strong></th>
+    <th><strong>Cpf do Cliente</strong></th>
+    <th><strong>Data atendiemnto</strong></th>
+    <th><strong>Tipo atendiemnto</strong></th>
+  </tr>
+  <tr>
+    <td>{{ atendimento.pk }}</td>
+    <td>{{ atendimento.pet }}</td>
+    <td>{{ atendimento.data_hora }}</td>
+    <td>{{ atendimento.tipo }}</td>
+  </tr>
+  </table>
+ <h3>Procedimentos anteriores</h3>
+ <p>{{ atendimento.procedimento }}</p> 
+<div class="container">
+<div class="box">  
+<h2>Procedimento adotado</h2>
+<textarea rows="4" cols="100" #procedimento>
+</textarea>
+ <button (click)="addProcedimento(procedimento.value, atendimento.pk)">Salvar</button>
+</div>
+</div>
